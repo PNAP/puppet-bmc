@@ -1,0 +1,30 @@
+{
+    "description": "Creates a BMC SSH Key",
+    "supports_noop": false,
+    "files": ["bmc/files/pnap_task_helper.rb"],
+    "input_method": "stdin",
+    "parameters": {
+      "client_id": {
+        "description": "Client ID",
+        "type": "String[1]",
+        "sensitive": true
+      },
+      "client_secret": {
+        "description": "Client Secret",
+        "type": "String[1]",
+        "sensitive": true
+      },
+      "name": {
+        "description": "Name of the SSH Key. How puppet identifies the SSH Key.",
+        "type": "String[1]"
+      },
+      "default": {
+        "description": "Is the default SSH key?",
+        "type": "Boolean"
+      },
+      "key": {
+        "description": "SSH Key value.",
+        "type": "String[1]"
+      }
+    }
+  }

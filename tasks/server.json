@@ -1,0 +1,22 @@
+{
+  "description": "Shows all or one BMC Server Instance",
+  "supports_noop": false,
+  "files": ["bmc/files/pnap_task_helper.rb"],
+  "input_method": "stdin",
+  "parameters": {
+    "client_id": {
+      "description": "Client ID",
+      "type": "String[1]",
+      "sensitive": true
+    },
+    "client_secret": {
+      "description": "Client Secret",
+      "type": "String[1]",
+      "sensitive": true
+    },
+    "id": {
+      "description": "The id of the specific instance, if none is provided, will show all",
+      "type": "Optional[String[1]]"
+    }
+  }
+}

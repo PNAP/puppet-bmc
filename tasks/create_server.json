@@ -1,0 +1,62 @@
+{
+    "description": "Creates a BMC Server Instance",
+    "supports_noop": false,
+    "files": ["bmc/files/pnap_task_helper.rb"],
+    "input_method": "stdin",
+    "parameters": {
+      "client_id": {
+        "description": "Client ID",
+        "type": "String[1]",
+        "sensitive": true
+      },
+      "client_secret": {
+        "description": "Client Secret",
+        "type": "String[1]",
+        "sensitive": true
+      },
+      "hostname": {
+        "description": "The hostname of the instance.",
+        "type": "String[1]"
+      },
+      "os": {
+        "description": "The OS of the instance",
+        "type": "Enum['ubuntu/bionic','centos/centos7','windows/srv2019std','windows/srv2019dc']"
+      },
+      "type": {
+        "description": "Server type of the instance",
+        "type": "String[1]"
+      },
+      "location": {
+        "description": "Server Location ID. Cannot be changed once a server is created. Currently this field should be set to PHX or ASH.",
+        "type": "Enum['PHX','ASH', 'SGP', 'NLD']"
+      },
+      "description": {
+        "description": "The description of the instance",
+        "type": "Optional[String[1]]"
+      },
+      "network_type": {
+        "description": "The network type of the instance",
+        "type": "Optional[Enum['PUBLIC_AND_PRIVATE','PRIVATE_ONLY']]"
+      },
+      "pricing_model": {
+        "description": "The pricing model of the instance",
+        "type": "Optional[Enum['HOURLY','ONE_MONTH_RESERVATION','TWELVE_MONTHS_RESERVATION','TWENTY_FOUR_MONTHS_RESERVATION','THIRTY_SIX_MONTHS_RESERVATION']]"
+      },
+      "reservation_id": {
+        "description": "The id of the reservation",
+        "type": "Optional[String[1]]"
+      },
+      "install_default_ssh_keys": {
+        "description": "The id of the reservation",
+        "type": "Optional[Boolean]"
+      },
+      "ssh_key_ids": {
+        "description": "The id of the reservation",
+        "type": "Optional[Array[String[1]]]"
+      },
+      "ssh_keys": {
+        "description": "The id of the reservation",
+        "type": "Optional[Array[String[1]]]"
+      }
+    }
+  }
