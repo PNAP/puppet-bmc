@@ -80,7 +80,7 @@ class PuppetX::PNAP::ServerProvider < PuppetX::PNAP::Provider
   end
 
   def self.wait_for_power_on(bmc_client, server_id)
-    notice("Witing for Server ID #{server_id} to Power On.")
+    notice("Waiting for Server ID #{server_id} to Power On.")
     get = Bmc::Sdk::GetServer.new(bmc_client, server_id)
 
     timeout = Time.now + TIMEOUT_SECONDS
