@@ -2,8 +2,8 @@
 
 PUPPET_VERSION='2019.8.4'
 
-PUBLIC_HOSTNAME='puppet-master.local' # must be same as hostname
-INTERNAL_HOSTNAME='puppet-master' # must be same as hostname
+PUBLIC_HOSTNAME='puppet-master.local'
+INTERNAL_HOSTNAME='puppet-master'
 
 CONSOLE_PASSWORD='admin'
 
@@ -29,7 +29,7 @@ function write_masterconfig() {
 {
     "console_admin_password": "$CONSOLE_PASSWORD"
     "puppet_enterprise::puppet_master_host": "$PUBLIC_HOSTNAME"
-    "pe_install::puppet_master_dnsaltnames": ["$PUBLIC_HOSTNAME", "$INTERNAL_HOSTNAME"]
+    "pe_install::puppet_master_dnsaltnames": ["$PUBLIC_HOSTNAME", "$INTERNAL_HOSTNAME", "puppet"]
 }
 CONFIG
 }
