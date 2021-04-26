@@ -50,7 +50,7 @@ Puppet::Type.newtype(:pnap_server) do
   end
 
   newproperty(:id) do
-    desc 'The id of the server. Read-only property.'
+    desc 'The unique identifier of the server. Read-only property.'
     validate do |_|
       raise Puppet::Error, 'id is read-only.'
     end
@@ -88,7 +88,7 @@ Puppet::Type.newtype(:pnap_server) do
   end
 
   newproperty(:type) do
-    desc 'Server Type ID. Cannot be changed once a server is created.'
+    desc 'Server Type ID. This property is read-only once instance is created.'
     validate do |value|
       raise Puppet::Error, 'type must be defined' if value.nil?
       raise Puppet::Error, 'type name must be a string' unless value.is_a? String
@@ -97,7 +97,7 @@ Puppet::Type.newtype(:pnap_server) do
   end
 
   newproperty(:location) do
-    desc 'Server Location ID. Cannot be changed once a server is created.'
+    desc 'Server Location ID. This property is read-only once instance is created.'
     newvalues(
       'PHX',
       'ASH',
