@@ -213,7 +213,11 @@ A description of the machine storage.
 
 Whether or not to install ssh keys marked as default in addition to any ssh keys specified in this request.
 
-**This property defaults to `false` if not specified otherwise.**
+Valid values are:
+
+`true, false`
+
+**This property defaults to `true` if not specified otherwise.**
 
 ### `ssh_key_ids`
 
@@ -242,6 +246,8 @@ Server pricing model.
 Valid values are:
 
 `HOURLY, ONE_MONTH_RESERVATION, TWELVE_MONTHS_RESERVATION, TWENTY_FOUR_MONTHS_RESERVATION, THIRTY_SIX_MONTHS_RESERVATION`
+
+**This property defaults to `HOURLY` if not specified otherwise.**
 
 ### `password` (read-only property)
 
@@ -345,5 +351,5 @@ Get in touch with us if you have questions or need help with Bare Metal Cloud.
 
 <p align="center">
   <br>
-  a href="https://phoenixnap.com/bare-metal-cloud"><img src="https://user-images.githubusercontent.com/81640346/115243282-0c773b80-a123-11eb-9de7-59e3934a5712.jpg" alt="phoenixnap Bare Metal Cloud"></a>
+  <a href="https://phoenixnap.com/bare-metal-cloud"><img src="https://user-images.githubusercontent.com/81640346/115243282-0c773b80-a123-11eb-9de7-59e3934a5712.jpg" alt="phoenixnap Bare Metal Cloud"></a>
 </p>

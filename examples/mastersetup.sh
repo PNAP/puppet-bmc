@@ -2,8 +2,8 @@
 
 PUPPET_VERSION='2019.8.4'
 
-PUBLIC_HOSTNAME='puppet-master.local'
-INTERNAL_HOSTNAME='puppet-master'
+PUBLIC_HOSTNAME='puppet-demo-server.securedservers.com'
+INTERNAL_HOSTNAME='puppet-demo-server'
 
 CONSOLE_PASSWORD='admin'
 
@@ -19,10 +19,6 @@ function check_exit_status() {
 }
 
 trap check_exit_status INT TERM EXIT
-
-function write_hosts_file() {
-  sed -i "/$INTERNAL_HOSTNAME/ s/.*/127.0.1.1 $PUBLIC_HOSTNAME $INTERNAL_HOSTNAME/g" /etc/hosts
-}
 
 function write_masterconfig() {
   cat > /opt/puppet-enterprise.conf << CONFIG
@@ -49,8 +45,8 @@ function install_pe_master() {
 
 function download_pnap_module() {
   echo "Installing the PNAP Module with tasks..."
-  /opt/puppetlabs/puppet/bin/gem install bmc-sdk-development
-  curl -L -s -o /opt/phoenixnap-bmc-0.0.1.tar.gz https://github.com/markome-pnap/phoenixnap-bmc-puppet/releases/download/0.0.1/phoenixnap-bmc-0.0.1.tar.gz
+  /opt/puppetlabs/puppet/bin/gem install bmc-sdk
+  curl -L -s -o /opt/phoenixnap-bmc-0.0.1.tar.gz https://github.com/pnap/puppet-bmc/releases/download/0.0.1/phoenixnap-bmc-0.0.1.tar.gz
   puppet module install --force /opt/phoenixnap-bmc-0.0.1.tar.gz
   if [ ! -d ~/.pnap ]; then
     mkdir -p ~/.pnap
@@ -71,7 +67,6 @@ function provision_puppet() {
     exit 1
   fi
 
-  write_hosts_file
   install_pe_master
   download_pnap_module
 
